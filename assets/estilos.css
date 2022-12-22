@@ -1,0 +1,190 @@
+.contenedor {
+  max-width: 1200px;
+  width: 90%;
+  margin: auto;
+}
+
+/**********TITULOS**************/
+.principal h3,
+.musica h3 {
+  color: #fff;
+  font-size: clamp(1.5rem, 3vw, 30px);
+}
+
+.musica h3 {
+  padding-top: 1rem;
+}
+/* --- --- CAROUSEL --- --- */
+
+.carousel img {
+  height: 100%;
+  object-fit: cover;
+  transition: all 2s ease-in-out;
+}
+
+.carousel__elemento {
+  transition: all 1.5s;
+}
+
+.principal .carousel__elemento:hover {
+  transform: scale(1.1);
+  transform-origin: center;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.musica .carousel__elemento:hover {
+  transform: scale(1.1);
+  transform-origin: center;
+  z-index: 99;
+}
+
+.carousel__contenedor {
+  position: relative;
+}
+
+.carousel__anterior,
+.carousel__siguiente,
+.carousel_anterior,
+.carousel_siguiente,
+.carousel_anteriores,
+.carousel_siguientes {
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 50%;
+  border: none;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  line-height: 30px;
+  text-align: center;
+  background: none;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  transition: background 1s ease;
+}
+
+.carousel__anterior:hover,
+.carousel__siguiente:hover,
+.carousel_anterior:hover,
+.carousel_siguiente:hover,
+.carousel_anteriores:hover,
+.carousel_siguientes:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.carousel__anterior,
+.carousel_anterior,
+.carousel_anteriores {
+  left: 0;
+}
+
+.carousel__siguiente,
+.carousel_siguiente,
+.carousel_siguientes {
+  right: 0;
+}
+
+.carousel__lista,
+.carousel__list,
+.carousel_listas {
+  overflow: hidden;
+}
+
+.carousel__elemento {
+  position: relative;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.carousel__indicadores .glider-dot,
+.carousel_indicador .glider-dot,
+.carousel_indicadores .glider-dot {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background: #fff;
+  border-radius: 0;
+}
+
+.carousel__indicadores .glider-dot:hover,
+.carousel_indicador .glider-dot:hover,
+.carousel_indicadores .glider-dot:hover {
+  opacity: 0.5;
+  background-color: #e50914;
+}
+
+.carousel__indicadores .glider-dot.active,
+.carousel_indicador .glider-dot.active,
+.carousel_indicadores .glider-dot.active {
+  opacity: 1;
+  background-color: #e50914;
+}
+
+.carousel__lista,
+.carousel_listas {
+  overflow-x: scroll;
+}
+
+.carousel__lista::-webkit-scrollbar,
+.carousel_lista::-webkit-scrollbar,
+.carousel_listas::-webkit-scrollbar {
+  height: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .contenido-principal {
+    flex-direction: column;
+  }
+
+  .contenido-principal > * {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .musica h3 {
+    padding-top: auto;
+  }
+}
+
+/***********MUSICA************/
+.carousel__elemento span.play {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-150%, -50%);
+}
+
+.carousel__elemento span.stop {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(100%, -50%);
+}
+
+.carousel__elemento i {
+  color: #e50914;
+  font-size: clamp(2.5rem, calc(2.5rem+1vw), 3rem);
+}
+
+.musica .carousel__elemento {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.musica .carousel__elemento:hover p {
+  display: none;
+}
+
+.image-center img {
+  border-left: thin solid #1f202b;
+  border-right: thin solid #1f202b;
+  object-fit: contain;
+  object-position: 50%;
+  background-color: #2e303f;
+}

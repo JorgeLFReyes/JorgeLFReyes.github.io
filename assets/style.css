@@ -1,0 +1,412 @@
+:root {
+  --text-white: #fff;
+  --text-red: #e50914;
+  --principal: #141414;
+  --text-hover: #9b9898;
+  --max-width: 1200px;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  width: 0.5rem;
+  background-color: #fff;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #252525;
+}
+
+* {
+  scroll-margin-top: 68px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #141414;
+  font-family: "Hanken Grotesk", sans-serif;
+  min-height: 200vh;
+}
+
+.contenedor-padding {
+  padding: 0 4%;
+}
+
+img {
+  object-position: top;
+  aspect-ratio: 16/9;
+}
+
+/*****************Animaciones*********************/
+@keyframes vibracion {
+  10%,
+  90% {
+    transform: translate(-0.5px, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate(1px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate(-1.5px, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate(1.5px, 0);
+  }
+}
+
+/********BARRA DE NAVEGACIÓN - MOBILE********/
+.abajo {
+  background-color: var(--principal);
+}
+
+.none {
+  display: none;
+}
+
+.menu-btn {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+  margin-right: 0.5rem;
+  z-index: 999;
+}
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  min-height: 68px;
+  transition: opacity 0.5s ease, background-color 0.5s;
+  z-index: 998;
+}
+
+.navbar__browse {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.navbar__browse.is-active {
+  background-color: #14141495;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navbar__browse > a {
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-white);
+}
+
+.navbar__logo {
+  width: 50%;
+  pointer-events: none;
+  display: flex;
+  z-index: 999;
+}
+
+.navbar__logo img {
+  max-width: 70px;
+  height: 30px;
+}
+
+.navbar__menu {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.5rem;
+}
+
+.navbar__menu i {
+  color: var(--text-white);
+  padding: 0.5rem;
+  transition: color 0.5s;
+}
+
+.notificacion-i {
+  animation: vibracion 3s infinite;
+}
+
+.notificacion-i:hover {
+  animation: none;
+}
+
+.navbar__menu a:hover i {
+  color: var(--text-red);
+}
+
+.user {
+  display: grid;
+  inset: 0;
+}
+
+.user img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ***********Hero Image******* */
+.hero-image {
+  position: relative;
+  height: 100vh;
+  background-image: url("./holo.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin-bottom: 4rem;
+}
+
+.hero-image::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--principal);
+  box-shadow: 0 0 1rem 0.5rem var(--principal), 0 0 2rem 1rem var(--principal),
+    0 0 4rem 2rem var(--principal);
+}
+
+.hero-image-content {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #14141470;
+}
+
+.hero-image-title {
+  font-size: clamp(2rem, 3vw, 10rem);
+  font-family: var(--font-header);
+  color: var(--text-white);
+  letter-spacing: 4vw;
+}
+
+.hero-image-content p {
+  padding: 2rem 0;
+  font-size: clamp(1rem, 1.5vw, 3rem);
+  color: var(--text-white);
+}
+
+.hero-image-title.o,
+.hero-image-p.o {
+  opacity: 0;
+}
+
+/********BOTONES********/
+.botones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boton-main {
+  background-color: rgba(109, 109, 110, 0.7);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: #fff;
+  cursor: pointer;
+  margin: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.boton-main:first-child {
+  background-color: #fff;
+  color: #141414;
+}
+
+.boton-main i {
+  margin-right: 0.5rem;
+}
+
+.boton-main:first-child:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.boton-main:last-child:hover {
+  background-color: #0005;
+}
+
+.botones a {
+  text-decoration: none;
+  color: #141414;
+}
+
+/********NOTIFICACION********/
+.notificacion {
+  position: fixed;
+  top: 68px;
+  right: 20%;
+  background-color: #0009;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  padding: 0.5rem;
+  border-top: thick solid #fff;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
+.notificacion-modal {
+  font-size: small;
+}
+
+.notificacion-i:hover .notificacion {
+  scroll-margin-top: 68px;
+  opacity: 1;
+}
+
+/**************Palabras*****************/
+
+.palabras {
+  height: 100vh;
+  color: var(--text-white);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-margin-top: 0;
+}
+
+.palabras-child {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.palabras-child p {
+  padding-bottom: 1rem;
+}
+
+.palabras-child cite {
+  align-self: flex-end;
+}
+
+/********MEDIA QUERY********/
+
+@media screen and (min-width: 700px) {
+  .boton-main {
+    padding: 1rem 2rem;
+    margin: initial;
+    margin-right: 1rem;
+  }
+
+  .boton-main i {
+    margin-right: 1rem;
+  }
+
+  .hero-image {
+    background-image: url("./holo-3.webp");
+    background-position: 0 0;
+  }
+
+  .hero-image-content {
+    background-color: initial;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .hero-image-title {
+    letter-spacing: 2vw;
+  }
+
+  .hero-image-p {
+    margin: 0;
+    text-align: left;
+    font-size: clamp(1rem, 1vw, 2rem) !important;
+    max-width: 45%;
+    text-align: justify;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .navbar__browse {
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-start;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .navbar__browse a {
+    font-size: small;
+    transition: color 0.5s;
+  }
+
+  .navbar__browse a:hover {
+    color: var(--text-hover);
+  }
+
+  .navbar__logo {
+    width: auto;
+    pointer-events: all;
+  }
+
+  .navbar__logo img {
+    height: 40px;
+    padding-top: 0.2rem;
+  }
+
+  .navbar__menu a {
+    padding: 0.5rem;
+  }
+
+  .notificacion {
+    right: 8%;
+    width: 20rem;
+  }
+
+  .palabras {
+    font-size: clamp(2.5rem, calc(2.5rem+1vw), 3rem);
+    text-align: justify;
+  }
+}
